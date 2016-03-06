@@ -33,12 +33,21 @@
              支持归档，不用自己重写Coder方法
              */
             LBUserModel *userModel = [LBUserModel modelWithDict:dict];
-            NSLog(@"%@",userModel);
+            NSLog(@"%@",userModel);  
             
+转换后的结果：  
+
+![image](https://github.com/lbtc/LBParentModel/blob/master/img1.png)
+
+
             //归档
             NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingString:@"user.data"];
             [NSKeyedArchiver archiveRootObject:userModel toFile:filePath];
             
             //解档
             LBUserModel *user = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-            NSLog(@"%@",user);
+            NSLog(@"%@",user);  
+            
+解档后的结果：  
+
+![image](https://github.com/lbtc/LBParentModel/blob/master/img2.png)
